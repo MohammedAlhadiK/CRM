@@ -1,0 +1,38 @@
+<p>
+  <a [routerLink]="['/add-new-customer']" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Name </th>
+      <th>
+        Email </th>
+      <th>
+        phone </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>
+        {{customer.firstName +' '+ customer.lastName}}
+      <td>
+        {{customer.email }}
+      </td>
+      <td>
+        {{customer.phone}}
+      </td>
+
+
+      <td style="width: 25%;">
+        <a [routerLink]="['/edit-customer/'+ customer.id]">Edit</a> |
+        <button *ngIf="!customer.isActive" (click)="editCustomer(customer,true)"
+          class="bg-danger btn btn-danger">Deactivate</button>
+        <button *ngIf="customer.isActive" (click)="editCustomer(customer,false)"
+          class="bg-success btn btn-success">Activate</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

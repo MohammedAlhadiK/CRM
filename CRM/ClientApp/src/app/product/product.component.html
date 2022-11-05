@@ -1,0 +1,35 @@
+<p>
+  <a [routerLink]="['/product']" class="btn btn-primary">Create Product</a> &nbsp;
+  <a [routerLink]="['/order']" class="btn btn-primary">Create Order</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Name </th>
+      <th>
+        Descrition </th>
+      <th>
+        Price </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of Products">
+      <td>
+        {{product.name}}
+      <td>
+        {{product.descrition }}
+      </td>
+      <td>
+        {{product.price}}
+      </td>
+
+
+      <td style="width: 25%;">
+        <a [routerLink]="['/product/'+ product.id]">Edit</a>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>

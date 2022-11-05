@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col">
+    <input type="text" name="firstName" [(ngModel)]="product.name" class="form-control" placeholder="Name">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" name="lastName" [(ngModel)]="product.descrition" placeholder="Description">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col">
+    <input type="text" class="form-control" name="code" [(ngModel)]="product.price" placeholder="Price">
+  </div>
+
+</div>
+
+<br>
+<div style="width: 30%;">
+  <button type="submit" *ngIf="!id" class="btn btn-primary" (click)="addnewproduct()">Add</button>
+  <button type="submit" *ngIf="id" class="btn btn-primary" (click)="editproduct()">Edit</button>
+</div>

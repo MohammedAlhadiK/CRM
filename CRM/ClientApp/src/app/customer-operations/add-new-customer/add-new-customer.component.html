@@ -1,0 +1,103 @@
+<form class="col-8" #form="ngForm">
+  <div class="row">
+    <div class="col">
+      <input type="text" name="firstName" [(ngModel)]="customer.firstName" class="form-control"
+        placeholder="First name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" name="lastName" [(ngModel)]="customer.lastName" placeholder="Last name">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" name="code" [(ngModel)]="customer.code" placeholder="Code">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" name="email" [(ngModel)]="customer.email" placeholder="Email">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" name="phone" [(ngModel)]="customer.phone" placeholder="Phone">
+    </div>
+    <br><br>
+    <div class="col">
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="isActive" [(ngModel)]="customer.isActive"
+            id="gridCheck">
+          <label class="form-check-label " for="gridCheck">
+            Is Customer Active?
+          </label>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h1>Address</h1>
+    <div class="col">
+      <ng-container *ngFor="let ad of customer.addresses ;index as i">
+
+        <div class="row">
+          <div class="col-4">
+            <input type="text" class="form-control" name="address.line1{{i}}" [(ngModel)]="ad.line1"
+              placeholder="line1">
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" name="address.line2{{i}}" [(ngModel)]="ad.line2"
+              placeholder="line2">
+
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" name="address.city{{i}}" [(ngModel)]="ad.city" placeholder="city">
+
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <input type="text" class="form-control" name="address.state{{i}}" [(ngModel)]="ad.state"
+              placeholder="state">
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" name="address.postalCode{{i}}" [(ngModel)]="ad.postalCode"
+              placeholder="postalCode">
+
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" name="address.country{{i}}" [(ngModel)]="ad.country"
+              placeholder="country">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="address.shippingAddress{{i}}"
+                [(ngModel)]="ad.shippingAddress" id="gridCheck">
+              <label class="form-check-label " for="gridCheck">
+                Is shipping Address?
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="address.billingAddress{{i}}"
+                [(ngModel)]="ad.billingAddress" id="gridCheck">
+              <label class="form-check-label " for="gridCheck">
+                Is billing Address?
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <button class="btn btn-info" (click)="addnewAddress()" style="width:30% ;">+ Add Address</button>
+  <br>
+  <br>
+  <button type="submit" *ngIf="!id" class="btn btn-primary" (click)="addnewcustomer()">Add</button>
+  <button type="submit" *ngIf="id" class="btn btn-primary" (click)="editCustomer()">Edit</button>
+</form>

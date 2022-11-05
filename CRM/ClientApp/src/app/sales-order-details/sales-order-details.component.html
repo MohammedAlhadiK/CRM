@@ -1,0 +1,78 @@
+<form class="col-8" #form="ngForm">
+  <div class="row">
+    <div class="col">
+      <label for="lineNo">lineNo</label>
+      <input type="text" name="lineNo" [(ngModel)]="orderDetails.lineNo" class="form-control" placeholder="lineNo">
+    </div>
+    <div class="col">
+      <label for="productID">productID</label>
+
+      <input type="text" class="form-control" name="productID" [(ngModel)]="orderDetails.productID"
+        placeholder="productID">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <label for="linePrice">linePrice</label>
+
+      <input type="text" class="form-control" name="linePrice" [(ngModel)]="orderDetails.linePrice"
+        placeholder="linePrice">
+    </div>
+    <div class="col">
+      <label for="lineOrderQTY">lineOrderQTY</label>
+
+      <input type="text" class="form-control" name="lineOrderQTY" [(ngModel)]="orderDetails.lineOrderQTY"
+        placeholder="lineOrderQTY">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <label for="lineTaxAmount">lineTaxAmount</label>
+
+      <input type="text" class="form-control" name="lineTaxAmount" [(ngModel)]="orderDetails.lineTaxAmount"
+        placeholder="lineTaxAmount">
+    </div>
+    <br>
+
+    <hr>
+
+  </div>
+
+
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Name </th>
+        <th>
+          Descrition </th>
+        <th>
+          Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Products">
+        <td>
+          {{product.name}}
+        <td>
+          {{product.descrition }}
+        </td>
+        <td>
+          {{product.price}}
+        </td>
+
+
+        <td style="width: 25%;">
+          <button type="submit" class="btn btn-info" (click)="addProduct()">Add</button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table> -->
+  <div style="width: 30%;">
+    <button type="submit" class="btn btn-primary" (click)="addSalesOrderDetails()">Add</button>
+  </div>
+</form>
